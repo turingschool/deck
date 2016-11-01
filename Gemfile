@@ -40,12 +40,9 @@ gem 'pg', group: :postgresql
 # Optional MySQL for production
 gem 'sqlite3', group: :sqlite
 
-# authentication
-gem 'devise'
-gem 'devise_ldap_authenticatable'
-
-# omniauth
-gem 'omniauth-google-oauth2'
+# Slack Integration
+gem 'omniauth-slack'
+gem 'slack-api'
 
 # authorization
 gem 'cancancan'
