@@ -12,6 +12,8 @@ gem 'foundation-rails', '~> 5.5.0'
 
 gem 'jquery-rails'
 
+gem 'simplecov', '~> 0.12.0'
+
 # foundation form errors
 gem 'foundation_rails_helper'
 
@@ -30,9 +32,6 @@ end
 group :test do
   # for travis-ci
   gem 'rake'
-
-  # for coveralls
-  gem 'coveralls'
 end
 
 # Optional PostgreSQL for production
