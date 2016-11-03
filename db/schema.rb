@@ -125,7 +125,7 @@ ActiveRecord::Schema.define(version: 20160615124420) do
     t.string   "default_locale",                                  default: "en"
     t.boolean  "share_drafts",                                    default: false
     t.boolean  "first_reply_ignores_notified_agents",             default: false,       null: false
-    t.boolean  "notify_client_when_ticket_is_assigned_or_closed", default: false
+    t.boolean  "notify_client_when_ticket_is_assigned_or_closed", default: false,       null: false
   end
 
   add_index "tenants", ["domain"], name: "index_tenants_on_domain", unique: true
@@ -185,5 +185,4 @@ ActiveRecord::Schema.define(version: 20160615124420) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-
 end

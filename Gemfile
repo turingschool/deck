@@ -22,7 +22,7 @@ gem 'pry', group: [:development, :test]
 group :development do
   # Spring application pre-loader
   gem 'spring'
-  
+
   # open sent emails in the browser
   gem 'letter_opener'
 end
@@ -40,7 +40,7 @@ gem 'pg', group: :postgresql
 # Optional MySQL for production
 gem 'mysql2', group: :mysql
 # Optional SQLite for development
-gem 'sqlite3', group: :sqlite
+gem 'sqlite3'#, group: :sqlite
 
 # authentication
 gem 'devise'
