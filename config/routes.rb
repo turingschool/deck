@@ -1,6 +1,6 @@
 Brimir::Application.routes.draw do
 
-  devise_for :users, controllers: { omniauth_callbacks: 'omniauth' }
+  # devise_for :users, controllers: { omniauth_callbacks: 'omniauth' }
 
   resources :users do
     get :tickets, to: 'tickets#index'
