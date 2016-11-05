@@ -18,9 +18,9 @@ class ApplicationController < ActionController::Base
 
   include MultiTenancy
 
-  rescue_from DeviseLdapAuthenticatable::LdapException do |exception|
-    render text: exception, status: 500
-  end
+  # rescue_from DeviseLdapAuthenticatable::LdapException do |exception|
+  #   render text: exception, status: 500
+  # end
   protect_from_forgery with: :null_session
 
   before_action :load_tenant
