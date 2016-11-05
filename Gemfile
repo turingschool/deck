@@ -40,8 +40,8 @@ group :test do
 end
 
 # authentication
-gem 'devise'
-gem 'devise_ldap_authenticatable'
+# gem 'devise'
+# gem 'devise_ldap_authenticatable'
 
 # omniauth
 gem 'omniauth-google-oauth2'
