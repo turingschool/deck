@@ -247,6 +247,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   byebug
   cancancan
   coffee-rails (~> 4.1.0)

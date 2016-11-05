@@ -15,6 +15,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 class User < ActiveRecord::Base
+  has_secure_password
   # devise Rails.application.config.devise_authentication_strategy, :recoverable,
   #   :rememberable, :trackable, :validatable,:omniauthable,
   #   omniauth_providers: [:google_oauth2]
