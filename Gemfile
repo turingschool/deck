@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 4.2.0'
 
+gem 'pg', '~> 0.18'
+
 gem 'sass-rails', '~> 5.0.0'
 gem 'coffee-rails', '~> 4.1.0'
 
@@ -33,13 +35,6 @@ group :test do
   # for travis-ci
   gem 'rake'
 end
-
-# Optional PostgreSQL for production
-gem 'pg', group: :postgresql
-# Optional MySQL for production
-gem 'mysql2', group: :mysql
-# Optional SQLite for development
-gem 'sqlite3'#, group: :sqlite
 
 # authentication
 gem 'devise'
