@@ -15,9 +15,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 class User < ActiveRecord::Base
-  devise Rails.application.config.devise_authentication_strategy, :recoverable,
-    :rememberable, :trackable, :validatable,:omniauthable,
-    omniauth_providers: [:google_oauth2]
+  has_secure_password
 
   has_many :tickets, dependent: :destroy
   has_many :replies, dependent: :destroy
@@ -31,13 +29,13 @@ class User < ActiveRecord::Base
   has_many :identities
 
   after_initialize :default_localization
-  before_validation :generate_password
+  # before_validation :generate_password
 
   # All ldap users are agents by default, remove/comment this method if this
   # is not the intended behavior.
-  def ldap_before_save
-    self.agent = true
-  end
+  # def ldap_before_save
+  #   self.agent = true
+  # end
 
   scope :agents, -> {
     where(agent: true)
@@ -104,9 +102,9 @@ class User < ActiveRecord::Base
     self.locale = Tenant.current_tenant.default_locale if locale.blank?
   end
 
-  def generate_password
-    if encrypted_password.blank?
-      self.password = Devise.friendly_token.first(12)
-    end
-  end
+  # def generate_password
+  #   if encrypted_password.blank?
+  #     self.password = Devise.friendly_token.first(12)
+  #   end
+  # end
 end

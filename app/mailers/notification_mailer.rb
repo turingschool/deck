@@ -54,13 +54,13 @@ class NotificationMailer < ActionMailer::Base
     (original_message.to.to_a + original_message.cc.to_a).each do |email|
       next if EmailAddress.pluck(:email).include?(email)
 
-      user = User.find_first_by_auth_conditions(email: email)
-      if user.nil?
-        ticket_or_reply.notified_users << User.create(email: email)
-      else
-        next if ticket_or_reply.notified_users.include?(user)
-        ticket_or_reply.notified_users << user
-      end
+      # user = User.find_first_by_auth_conditions(email: email)
+      # if user.nil?
+      #   ticket_or_reply.notified_users << User.create(email: email)
+      # else
+      #   next if ticket_or_reply.notified_users.include?(user)
+      #   ticket_or_reply.notified_users << user
+      # end
     end
   end
 
