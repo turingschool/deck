@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 4.2.0'
 
+gem 'pg', '~> 0.18'
+
 gem 'sass-rails', '~> 5.0.0'
 gem 'coffee-rails', '~> 4.1.0'
 
@@ -11,6 +13,8 @@ gem 'compass-rails', '~> 2.0.0'
 gem 'foundation-rails', '~> 5.5.0'
 
 gem 'jquery-rails'
+
+gem 'simplecov', '~> 0.12.0'
 
 # foundation form errors
 gem 'foundation_rails_helper'
@@ -30,13 +34,10 @@ end
 group :test do
   # for travis-ci
   gem 'rake'
-
-  # for coveralls
-  gem 'coveralls'
 end
 
 # Optional PostgreSQL for production
-gem 'pg', group: :postgresql
+# gem 'pg', group: :postgresql
 # Optional MySQL for production
 gem 'sqlite3', group: :sqlite
 
