@@ -37,7 +37,7 @@ class Tenant < ActiveRecord::Base
 
       @@current = Tenant.create! domain: domain, from: email
     else
-      @@current = Tenant.find_by!(domain: domain)
+      @@current = Tenant.find_by(domain: domain)
     end
 
     if postgresql? && available_schemas.include?(domain)

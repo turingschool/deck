@@ -18,12 +18,6 @@ class ApplicationController < ActionController::Base
 
   include MultiTenancy
 
-<<<<<<< HEAD
-=======
-  # rescue_from DeviseLdapAuthenticatable::LdapException do |exception|
-  #   render text: exception, status: 500
-  # end
->>>>>>> remove_devise_user_columns
   protect_from_forgery with: :null_session
 
   before_action :load_tenant
@@ -84,11 +78,11 @@ class ApplicationController < ActionController::Base
     else
       locale = http_accept_language.compatible_language_from(@locales)
 
-      if Tenant.current_tenant.ignore_user_agent_locale? || locale.blank?
-        I18n.locale = Tenant.current_tenant.default_locale
-      else
-        I18n.locale = locale
-      end
+      # if Tenant.current_tenant.ignore_user_agent_locale? || locale.blank?
+      #   I18n.locale = Tenant.current_tenant.default_locale
+      # else
+      #   I18n.locale = locale
+      # end
     end
 
     if I18n.locale == :fa
