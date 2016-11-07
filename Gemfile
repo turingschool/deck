@@ -14,6 +14,9 @@ gem 'foundation-rails', '~> 5.5.0'
 
 gem 'jquery-rails'
 
+gem 'bcrypt'
+
+# test coverage
 gem 'simplecov', '~> 0.12.0'
 
 gem 'figaro'
