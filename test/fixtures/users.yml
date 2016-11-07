@@ -7,14 +7,14 @@ alice:
 
 bob:
   email: bob@xxxx.com
-  encrypted_password: $2a$10$R4kIaHGeNs1ssPGxh7pT/ulEx.P3umqE9CJKQKpDYgXuLVI6DKC9i #testtest
+  # encrypted_password: $2a$10$R4kIaHGeNs1ssPGxh7pT/ulEx.P3umqE9CJKQKpDYgXuLVI6DKC9i #testtest
   authentication_token: blabla
 
 charlie:
   email: charlie@xxxx.com
   agent: true
-  current_sign_in_at: <%= Time.now %> # this will add the new ticket/reply link to mails
+  # current_sign_in_at: <%= Time.now %> # this will add the new ticket/reply link to mails
 
 dave:
   email: dave@xxxx.com
-  current_sign_in_at: <%= Time.now %> # this will add the new ticket/reply link to mails
+  # current_sign_in_at: <%= Time.now %> # this will add the new ticket/reply link to mails

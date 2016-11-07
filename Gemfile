@@ -14,7 +14,12 @@ gem 'foundation-rails', '~> 5.5.0'
 
 gem 'jquery-rails'
 
+gem 'bcrypt'
+
+# test coverage
 gem 'simplecov', '~> 0.12.0'
+
+gem 'figaro'
 
 # foundation form errors
 gem 'foundation_rails_helper'
@@ -36,12 +41,14 @@ group :test do
   gem 'rake'
 end
 
-# authentication
-gem 'devise'
-gem 'devise_ldap_authenticatable'
+# Optional PostgreSQL for production
+# gem 'pg', group: :postgresql
+# Optional MySQL for production
+gem 'sqlite3', group: :sqlite
 
-# omniauth
-gem 'omniauth-google-oauth2'
+# Slack Integration
+gem 'omniauth-slack'
+gem 'slack-api'
 
 # authorization
 gem 'cancancan'

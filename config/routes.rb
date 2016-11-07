@@ -1,6 +1,7 @@
 Brimir::Application.routes.draw do
-
-  devise_for :users, controllers: { omniauth_callbacks: 'omniauth' }
+  get '/auth/:provider/create_session' => 'sessions#create'
+  get '/sessions/new' => 'sessions#new', :as => 'login'
+  delete '/sessions/destroy' => 'sessions#destroy', :as => 'logout'
 
   resources :users do
     get :tickets, to: 'tickets#index'

@@ -1,0 +1,148 @@
+@page {
+  margin: 2cm;
+}
+/* line 5, /Users/jcasimir/Dropbox/Projects/brimir/app/assets/stylesheets/application-print.scss */
+.top-bar,
+aside,
+form,
+.reveal-modal,
+.f-dropdown {
+  display: none;
+}
+
+/* line 13, /Users/jcasimir/Dropbox/Projects/brimir/app/assets/stylesheets/application-print.scss */
+h3, h5 {
+  margin: 0;
+}
+
+/* line 17, /Users/jcasimir/Dropbox/Projects/brimir/app/assets/stylesheets/application-print.scss */
+h5 {
+  color: #444;
+  font-weight: normal;
+}
+
+/* line 22, /Users/jcasimir/Dropbox/Projects/brimir/app/assets/stylesheets/application-print.scss */
+.row,
+.columns {
+  border: none !important;
+}
+
+/* line 27, /Users/jcasimir/Dropbox/Projects/brimir/app/assets/stylesheets/application-print.scss */
+.inline-list.text-secondary {
+  margin: 0 0 20px 0;
+  padding: 0 0 20px 0;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+}
+/* line 33, /Users/jcasimir/Dropbox/Projects/brimir/app/assets/stylesheets/application-print.scss */
+.inline-list.text-secondary li {
+  margin-left: 20px;
+}
+/* line 35, /Users/jcasimir/Dropbox/Projects/brimir/app/assets/stylesheets/application-print.scss */
+.inline-list.text-secondary li:first-child {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* line 44, /Users/jcasimir/Dropbox/Projects/brimir/app/assets/stylesheets/application-print.scss */
+.replies h3 {
+  margin-left: 40px;
+}
+/* line 48, /Users/jcasimir/Dropbox/Projects/brimir/app/assets/stylesheets/application-print.scss */
+.replies .reply {
+  list-style: none;
+  position: relative;
+  padding-bottom: 5px;
+}
+/* line 54, /Users/jcasimir/Dropbox/Projects/brimir/app/assets/stylesheets/application-print.scss */
+.replies .reply p small {
+  float: right;
+}
+/* line 58, /Users/jcasimir/Dropbox/Projects/brimir/app/assets/stylesheets/application-print.scss */
+.replies .reply hr {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  box-shadow: none;
+  border-top: 1px solid #ccc;
+  border-left: none;
+  border-bottom: none;
+  border-right: none;
+  display: block;
+}
+/* line 71, /Users/jcasimir/Dropbox/Projects/brimir/app/assets/stylesheets/application-print.scss */
+.replies .reply:last-child hr {
+  display: none;
+}
+
+/* line 78, /Users/jcasimir/Dropbox/Projects/brimir/app/assets/stylesheets/application-print.scss */
+.medium-9.large-10.columns {
+  min-height: 100px !important;
+}
+
+/* line 82, /Users/jcasimir/Dropbox/Projects/brimir/app/assets/stylesheets/application-print.scss */
+.sticky {
+  padding: 10px;
+  border-top: 3px solid #ccc;
+}
+/* line 85, /Users/jcasimir/Dropbox/Projects/brimir/app/assets/stylesheets/application-print.scss */
+.sticky a {
+  text-decoration: none;
+  color: inherit;
+}
+/* line 89, /Users/jcasimir/Dropbox/Projects/brimir/app/assets/stylesheets/application-print.scss */
+.sticky dt {
+  font-weight: bold;
+  float: left;
+  margin-right: 5px;
+}
+/* line 93, /Users/jcasimir/Dropbox/Projects/brimir/app/assets/stylesheets/application-print.scss */
+.sticky dt:last-of-type {
+  float: left;
+  clear: both;
+  margin-top: 5px;
+}
+/* line 98, /Users/jcasimir/Dropbox/Projects/brimir/app/assets/stylesheets/application-print.scss */
+.sticky dt:after {
+  content: ":";
+}
+/* line 102, /Users/jcasimir/Dropbox/Projects/brimir/app/assets/stylesheets/application-print.scss */
+.sticky dd {
+  margin-left: 0;
+  float: left;
+  margin-right: 20px;
+}
+/* line 106, /Users/jcasimir/Dropbox/Projects/brimir/app/assets/stylesheets/application-print.scss */
+.sticky dd ul {
+  margin-top: 5px;
+  list-style: none;
+}
+/* line 109, /Users/jcasimir/Dropbox/Projects/brimir/app/assets/stylesheets/application-print.scss */
+.sticky dd ul li {
+  display: inline-block;
+}
+/* line 111, /Users/jcasimir/Dropbox/Projects/brimir/app/assets/stylesheets/application-print.scss */
+.sticky dd ul li a {
+  display: none;
+}
+/* line 114, /Users/jcasimir/Dropbox/Projects/brimir/app/assets/stylesheets/application-print.scss */
+.sticky dd ul li:after {
+  content: ", ";
+  margin-left: -3px;
+  margin-right: 3px;
+}
+/* line 120, /Users/jcasimir/Dropbox/Projects/brimir/app/assets/stylesheets/application-print.scss */
+.sticky dd ul li:last-child:after {
+  display: none;
+}
+/* line 127, /Users/jcasimir/Dropbox/Projects/brimir/app/assets/stylesheets/application-print.scss */
+.sticky ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 133, /Users/jcasimir/Dropbox/Projects/brimir/app/assets/stylesheets/application-print.scss */
+.user-avatar {
+  display: none;
+}
