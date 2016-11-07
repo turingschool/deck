@@ -16,6 +16,8 @@ gem 'jquery-rails'
 
 gem 'simplecov', '~> 0.12.0'
 
+gem 'figaro'
+
 # foundation form errors
 gem 'foundation_rails_helper'
 
