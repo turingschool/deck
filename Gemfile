@@ -16,6 +16,8 @@ gem 'jquery-rails'
 
 gem 'bcrypt'
 
+gem "minitest-rails"
+
 # test coverage
 gem 'simplecov', '~> 0.12.0'
 
@@ -39,6 +41,8 @@ end
 group :test do
   # for travis-ci
   gem 'rake'
+  gem 'minitest-rails-capybara', '~> 2.1', '>= 2.1.1'
+  gem 'launchy'
 end
 
 # Optional PostgreSQL for production
