@@ -26,9 +26,9 @@ gem 'figaro'
 # foundation form errors
 gem 'foundation_rails_helper'
 
+gem 'byebug'
 # to use debugger
 group :development, :test do
-  gem 'byebug'
   gem 'pry'
 end
 

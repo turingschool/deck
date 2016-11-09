@@ -10,8 +10,7 @@ class SessionsController < ApplicationController
 
   def create
     if params["code"]
-      byebug
-      SlackService.new(fetch_user_info_from_slack)
+      SlackService.new(params["code"])
     else
       byebug
     end
