@@ -38,6 +38,9 @@ group :development do
 
   # open sent emails in the browser
   gem 'letter_opener'
+
+  # for Capistrano deployment
+  gem 'capistrano-rails', '~> 1.1'
 end
 
 group :test do
