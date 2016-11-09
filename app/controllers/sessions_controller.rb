@@ -10,7 +10,8 @@ class SessionsController < ApplicationController
 
   def create
     if params["code"]
-      render :text => fetch_user_info_from_slack
+      byebug
+      SlackService.new(fetch_user_info_from_slack)
     else
       byebug
     end

@@ -27,8 +27,10 @@ gem 'figaro'
 gem 'foundation_rails_helper'
 
 # to use debugger
-gem 'byebug', group: [:development, :test]
-gem 'pry', group: [:development, :test]
+group :development, :test do
+  gem 'byebug'
+  gem 'pry'
+end
 
 group :development do
   # Spring application pre-loader
@@ -41,7 +43,7 @@ end
 group :test do
   # for travis-ci
   gem 'rake'
-  gem 'minitest-rails-capybara', '~> 2.1', '>= 2.1.1'
+  gem 'capybara'
   gem 'launchy'
 end
 
