@@ -15,10 +15,6 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 class User < ActiveRecord::Base
-  devise Rails.application.config.devise_authentication_strategy, :recoverable,
-    :rememberable, :trackable, :validatable,:omniauthable,
-    omniauth_providers: [:google_oauth2]
-
   has_many :tickets, dependent: :destroy
   has_many :replies, dependent: :destroy
   has_many :labelings, as: :labelable, dependent: :destroy
@@ -30,14 +26,14 @@ class User < ActiveRecord::Base
   # identities for omniauth
   has_many :identities
 
-  after_initialize :default_localization
-  before_validation :generate_password
+  # after_initialize :default_localization
+  # before_validation :generate_password
 
   # All ldap users are agents by default, remove/comment this method if this
   # is not the intended behavior.
-  def ldap_before_save
-    self.agent = true
-  end
+  # def ldap_before_save
+  #   self.agent = true
+  # end
 
   scope :agents, -> {
     where(agent: true)
@@ -63,9 +59,18 @@ class User < ActiveRecord::Base
     end
   }
 
-  def name
-    super || name_from_email_address
+  def self.from_omniauth(auth_info)
+    where(slack_id: auth_info.slack_id).first_or_create do |new_user|
+      new_user.authentication_token = auth_info.access_token
+      new_user.slack_id             = auth_info.slack_id
+      new_user.name                 = auth_info.name
+      new_user.email                = auth_info.email_address
+    end
   end
+
+  # def name
+  #   super || name_from_email_address
+  # end
 
   def name_from_email_address
     email.split('@').first
@@ -99,14 +104,14 @@ class User < ActiveRecord::Base
     not agent?
   end
 
-  def default_localization
-    self.time_zone = Tenant.current_tenant.default_time_zone if time_zone.blank?
-    self.locale = Tenant.current_tenant.default_locale if locale.blank?
-  end
+  # def default_localization
+  #   self.time_zone = Tenant.current_tenant.default_time_zone if time_zone.blank?
+  #   self.locale = Tenant.current_tenant.default_locale if locale.blank?
+  # end
 
-  def generate_password
-    if encrypted_password.blank?
-      self.password = Devise.friendly_token.first(12)
-    end
-  end
+  # def generate_password
+  #   if encrypted_password.blank?
+  #     self.password = Devise.friendly_token.first(12)
+  #   end
+  # end
 end

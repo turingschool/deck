@@ -18,17 +18,22 @@ class ApplicationController < ActionController::Base
 
   include MultiTenancy
 
-  rescue_from DeviseLdapAuthenticatable::LdapException do |exception|
-    render text: exception, status: 500
-  end
   protect_from_forgery with: :null_session
 
   before_action :load_tenant
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :set_locale
-  before_action :load_labels, if: :user_signed_in?
+  before_action :load_labels #, if: :user_signed_in?
 
-  check_authorization unless: :devise_controller?
+  # check_authorization unless: :devise_controller?
+
+  before_action :authenticate_user
+
+  def authenticate_user
+    unless params[:controller] == 'sessions' || current_user
+      redirect_to(:login)
+    end
+  end
 
   rescue_from CanCan::AccessDenied do |exception|
     if Rails.env == :production
@@ -37,6 +42,18 @@ class ApplicationController < ActionController::Base
       # for tests and development, we want unauthorized status codes
       render text: exception, status: :unauthorized
     end
+  end
+
+  helper_method :current_user
+
+  def current_user
+    User.find(session[:user_id]) if session[:user_id]
+  end
+
+  helper_method :user_signed_in?
+
+  def user_signed_in?
+    !!current_user
   end
 
   protected
@@ -56,16 +73,16 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    if user_signed_in? && !current_user.locale.blank?
+    if current_user && !current_user.locale.blank?
       I18n.locale = current_user.locale
     else
       locale = http_accept_language.compatible_language_from(@locales)
 
-      if Tenant.current_tenant.ignore_user_agent_locale? || locale.blank?
-        I18n.locale = Tenant.current_tenant.default_locale
-      else
-        I18n.locale = locale
-      end
+      # if Tenant.current_tenant.ignore_user_agent_locale? || locale.blank?
+      #   I18n.locale = Tenant.current_tenant.default_locale
+      # else
+      #   I18n.locale = locale
+      # end
     end
 
     if I18n.locale == :fa

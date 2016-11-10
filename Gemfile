@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 4.2.0'
 
+gem 'pg', '~> 0.18'
+
 gem 'sass-rails', '~> 5.0.0'
 gem 'coffee-rails', '~> 4.1.0'
 
@@ -12,14 +14,32 @@ gem 'foundation-rails', '~> 5.5.0'
 
 gem 'jquery-rails'
 
+gem 'bcrypt'
+
+gem "minitest-rails"
+
+# test coverage
 gem 'simplecov', '~> 0.12.0'
+
+gem 'figaro'
+
+# for Capistrano deployment
+gem 'capistrano'
+gem 'capistrano-bundler', require: false
+gem 'capistrano-rails', '~> 1.1'
+gem 'capistrano-rvm'
+gem 'capistrano3-unicorn'
+
+gem 'unicorn'
 
 # foundation form errors
 gem 'foundation_rails_helper'
 
+gem 'byebug'
 # to use debugger
-gem 'byebug', group: [:development, :test]
-gem 'pry', group: [:development, :test]
+group :development, :test do
+  gem 'pry'
+end
 
 group :development do
   # Spring application pre-loader
@@ -32,21 +52,18 @@ end
 group :test do
   # for travis-ci
   gem 'rake'
+  gem 'capybara'
+  gem 'launchy'
 end
 
 # Optional PostgreSQL for production
-gem 'pg', group: :postgresql
+# gem 'pg', group: :postgresql
 # Optional MySQL for production
-gem 'mysql2', group: :mysql
-# Optional SQLite for development
-gem 'sqlite3'#, group: :sqlite
+gem 'sqlite3', group: :sqlite
 
-# authentication
-gem 'devise'
-gem 'devise_ldap_authenticatable'
-
-# omniauth
-gem 'omniauth-google-oauth2'
+# Slack Integration
+gem 'omniauth-slack'
+gem 'slack-api'
 
 # authorization
 gem 'cancancan'

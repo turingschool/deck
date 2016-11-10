@@ -24,6 +24,7 @@
   <body style="<%= 'direction:rtl;' if [:ar].include?(I18n.locale)%> <%= 'background: #30363e' if user_signed_in? %>">
 
     <% if user_signed_in? %>
+      <%= link_to "Kill Session", logout_path, method: :delete %>
       <nav class="top-bar" data-topbar>
         <ul class="title-area medium-3 large-2">
           <% if can? :create, Ticket %>
@@ -64,7 +65,7 @@
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to destroy_user_session_path, method: :delete do %>
+                  <%= link_to logout_path, method: :delete do %>
                     <i class="fa-sign-out fa fa-fw"></i> <%= t(:sign_out) %>
                   <% end %>
                 </li>

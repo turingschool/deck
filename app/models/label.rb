@@ -39,7 +39,7 @@ class Label < ActiveRecord::Base
   }
 
   scope :viewable_by, lambda { |user|
-    if !user.agent? || user.labelings.count > 0
+    if user && (!user.agent? || user.labelings.count > 0)
       where(id: user.label_ids)
     end
   }
