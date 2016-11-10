@@ -23,6 +23,15 @@ gem 'simplecov', '~> 0.12.0'
 
 gem 'figaro'
 
+# for Capistrano deployment
+gem 'capistrano'
+gem 'capistrano-bundler', require: false
+gem 'capistrano-rails', '~> 1.1'
+gem 'capistrano-rvm'
+gem 'capistrano3-unicorn'
+
+gem 'unicorn'
+
 # foundation form errors
 gem 'foundation_rails_helper'
 
