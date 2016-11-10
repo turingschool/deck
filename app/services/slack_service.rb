@@ -1,5 +1,7 @@
 class SlackService
 
+  attr_reader :slack_code
+
   def initialize(slack_code)
     @slack_code = slack_code
   end
@@ -11,9 +13,5 @@ class SlackService
   def slack_user_attrs
     SlackUser.new(fetch_user_info_from_slack(slack_code))
   end
-
-  private
-
-  attr_reader :slack_code
   
 end
