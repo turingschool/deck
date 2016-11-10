@@ -16,7 +16,5 @@ class SessionsController < ApplicationController
     end
   end
 
-  def fetch_user_info_from_slack
-    Slack.oauth_access({:client_id => ENV['SLACK_APP_ID'], :client_secret => ENV['SLACK_APP_SECRET'], :code => params["code"]})
-  end
+
 end
