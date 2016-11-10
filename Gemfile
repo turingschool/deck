@@ -23,6 +23,14 @@ gem 'simplecov', '~> 0.12.0'
 
 gem 'figaro'
 
+# for Capistrano deployment
+gem 'capistrano'
+gem 'capistrano-bundler', require: false
+gem 'capistrano-rails', '~> 1.1'
+gem 'capistrano3-unicorn'
+
+gem 'unicorn'
+
 # foundation form errors
 gem 'foundation_rails_helper'
 
@@ -38,9 +46,6 @@ group :development do
 
   # open sent emails in the browser
   gem 'letter_opener'
-
-  # for Capistrano deployment
-  gem 'capistrano-rails', '~> 1.1'
 end
 
 group :test do

@@ -40,6 +40,8 @@ coverage
 
 # Ignore application configuration
 config/application.yml
-
-# Ignore application configuration
 /config/application.yml
+
+# Ignore database configuration for Capistrano
+config/database.yml
+/config/database.yml
