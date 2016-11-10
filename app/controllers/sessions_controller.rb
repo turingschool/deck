@@ -12,11 +12,13 @@ class SessionsController < ApplicationController
     if params["code"]
       slack_user_access = SlackService.new(params["code"])
       user_info = slack_user_access.fetch_user_info_from_slack
-      user = SlackUser.new(user_info)
+      slack_user = SlackUser.new(user_info)
 
-      session[:user_id] = 
+      if user = User.from_omniauth(slack_user)
+        session[:user_id] = user.id
+      end
+      redirect_to user_tickets_path(user)
 
-      redirect_to user_tickets_path
     else
       byebug
     end
