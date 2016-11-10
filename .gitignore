@@ -38,10 +38,11 @@ coverage
 .idea
 .byebug_history
 
-# Ignore database configuration for Capistrano
-config/database.yml
-/config/database.yml
+# Ignore application configuration
+config/application.yml
+/config/application.yml
 
+# Ignore database configuration for Capistrano
 config/database.yml
 /config/database.yml
 

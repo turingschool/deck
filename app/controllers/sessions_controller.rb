@@ -10,13 +10,19 @@ class SessionsController < ApplicationController
 
   def create
     if params["code"]
-      SlackService.new(params["code"])
+      slack_user_access = SlackService.new(params["code"])
+      user_info = slack_user_access.fetch_user_info_from_slack
+      slack_user = SlackUser.new(user_info)
+
+      if user = User.from_omniauth(slack_user)
+        session[:user_id] = user.id
+      end
+      redirect_to user_tickets_path(user)
+
     else
       byebug
     end
   end
 
-  def fetch_user_info_from_slack
-    Slack.oauth_access({:client_id => ENV['SLACK_APP_ID'], :client_secret => ENV['SLACK_APP_SECRET'], :code => params["code"]})
-  end
+
 end

@@ -1,15 +1,19 @@
-class SlackUser
-  attr_reader :access_token,
-              :name,
-              :slack_id,
-              :email_address,
-              :user_image
+class SlackService
 
-  def initialize(slack_user_info)
-    @access_token  = slack_user_info[:access_token]
-    @name          = slack_user_info[:user][:name]
-    @slack_id      = slack_user_info[:user][:id]
-    @email_address = slack_user_info[:user][:email]
-    @user_image    = slack_user_info[:user][:image_512]
+  def initialize(slack_code)
+    @slack_code = slack_code
   end
+
+  def fetch_user_info_from_slack
+    Slack.oauth_access({:client_id => ENV['SLACK_APP_ID'], :client_secret => ENV['SLACK_APP_SECRET'], :code => @slack_code})
+  end
+
+  def slack_user_attrs
+    SlackUser.new(fetch_user_info_from_slack(slack_code))
+  end
+
+  private
+
+  attr_reader :slack_code
+  
 end
