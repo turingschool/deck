@@ -61,9 +61,11 @@ class User < ActiveRecord::Base
     end
   }
 
-  def name
-    super || name_from_email_address
-  end
+  def 
+
+  # def name
+  #   super || name_from_email_address
+  # end
 
   def name_from_email_address
     email.split('@').first
