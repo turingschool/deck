@@ -27,6 +27,7 @@ gem 'figaro'
 gem 'capistrano'
 gem 'capistrano-bundler', require: false
 gem 'capistrano-rails', '~> 1.1'
+gem 'capistrano-rvm'
 gem 'capistrano3-unicorn'
 
 gem 'unicorn'
