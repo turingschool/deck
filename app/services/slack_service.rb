@@ -5,7 +5,8 @@ class SlackService
   end
 
   def fetch_user_info_from_slack
-    Slack.oauth_access({:client_id => ENV['SLACK_APP_ID'], :client_secret => ENV['SLACK_APP_SECRET'], :code => @slack_code})
+    slack = Slack.oauth_access({:client_id => ENV['SLACK_APP_ID'], :client_secret => ENV['SLACK_APP_SECRET'], :code => @slack_code})
+    byebug
   end
 
   def slack_user_attrs
@@ -15,5 +16,5 @@ class SlackService
   private
 
   attr_reader :slack_code
-  
+
 end
